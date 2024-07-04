@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Play_moves } from "../utils/constants"
+import { Link } from "react-router-dom";
 
 // Function to calculate the winner of the game
 // 1 is returned if the human wins, 2 if the computer wins, and 0 if it is a tie
@@ -45,6 +46,7 @@ export const HumanComputer =  () => {
 
   return (
     <div>
+      <Link to="/">⬅Go back to the home page</Link>
       <h1>Human vs Computer</h1>
       {!thereIsAWinner && <p>First to 3 wins!</p>}
       <h2>You: {humanScore}</h2>
