@@ -1,5 +1,14 @@
 export const Play_moves = {
-  1: 'stone',
-  2: 'paper',
-  3: 'scissors'
+  1: {
+    text: 'stone',
+    image: '🪨'
+  },
+  2: {
+    text: 'paper',
+    image: '🧻'
+  },
+  3: {
+    text: 'scissors',
+    image: '✂️'
+  }
 }
