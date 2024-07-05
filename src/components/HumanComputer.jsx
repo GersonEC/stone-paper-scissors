@@ -1,22 +1,7 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Play_moves } from "../utils/constants"
 import { Link } from "react-router-dom";
-
-// Function to calculate the winner of the game
-// 1 is returned if the human wins, 2 if the computer wins, and 0 if it is a tie
-const calculateWinner = (humanMove, computerMove) => {
-  if (humanMove === computerMove) {
-    return 0;
-  } else if (
-    (humanMove === 'stone' && computerMove === 'scissors') ||
-    (humanMove === 'paper' && computerMove === 'stone') ||
-    (humanMove === 'scissors' && computerMove === 'paper')
-  ) {
-    return 1;
-  } else {
-    return 2;
-  }
-}
+import { calculateWinner } from "../utils/calculateWinner";
 
 export const HumanComputer =  () => {
   const [humanScore, setHumanScore] = useState(0);
