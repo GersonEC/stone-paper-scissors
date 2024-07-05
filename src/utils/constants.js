@@ -1,14 +1,19 @@
 export const Play_moves = {
-  1: {
+  Stone: {
     text: 'stone',
     image: '🪨'
   },
-  2: {
+  Paper: {
     text: 'paper',
     image: '🧻'
   },
-  3: {
+  Scissors: {
     text: 'scissors',
     image: '✂️'
   }
+}
+
+export const Play_mode = {
+  Manual: 'manual',
+  Auto: 'auto'
 }
