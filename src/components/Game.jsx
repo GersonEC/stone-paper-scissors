@@ -36,14 +36,17 @@ export const Game = ({
     return (
       <div>
         <p>Choose your next move:</p>
-        <button onClick={() => play(Play_moves.Stone)} disabled={thereIsAWinner}>{Play_moves.Stone.text}</button>
-        <button onClick={() => play(Play_moves.Paper)} disabled={thereIsAWinner}>{Play_moves.Paper.text}</button>
-        <button onClick={() => play(Play_moves.Scissors)} disabled={thereIsAWinner}>{Play_moves.Scissors.text}</button>
-        {partialWinner === 1 && !thereIsAWinner && <p>You win this round!</p>}
-        {partialWinner === 2 && !thereIsAWinner && <p>Computer wins this round!</p>}
-        {partialWinner === 0 && !thereIsAWinner && <p>It's a tie!</p>}
-        {player1Score === 3 && <p>You win!</p>}
-        {player2Score === 3 && <p>Computer wins!</p>}
+        <div className="game-moves">
+          <button className="move" onClick={() => play(Play_moves.Stone)} disabled={thereIsAWinner}>{Play_moves.Stone.image}</button>
+          <button className="move" onClick={() => play(Play_moves.Paper)} disabled={thereIsAWinner}>{Play_moves.Paper.image}</button>
+          <button className="move" onClick={() => play(Play_moves.Scissors)} disabled={thereIsAWinner}>{Play_moves.Scissors.image}</button>
+        </div>
+        <p>
+          {!thereIsAWinner && partialWinner === 1 ? 'You win this round!' :
+          partialWinner === 2 ? 'Computer wins this round!' :
+          partialWinner === 0 ? 'It is a tie!' : null}
+        </p>
+        <p>{player1Score === 3 ? 'You win!' : player2Score === 3 ? 'Computer wins!' : null}</p>
       </div>
     )
   }
@@ -57,13 +60,22 @@ export const Game = ({
   }
 
   return (
-    <div>
-      {!thereIsAWinner && <p>First to 3 wins!</p>}
-      <h2>{mode === Play_mode.Auto ? 'Computer:' : 'You:'} {player1Score}</h2>
-      <h2>Computer: {player2Score}</h2>
-      {mode === Play_mode.Manual ? renderManualMode() : renderAutoMode()}
-      {player1Move && player2Move && <p>{player1Move} vs {player2Move}</p>}
-      {thereIsAWinner && <button onClick={handleRestart}>Restart</button>}
+    <div className="game">
+      <div className="game-board">
+        <div>
+          <h2>{mode === Play_mode.Auto ? 'Computer' : 'You'}</h2>
+          <h3 className="game-board-player1">{player1Score}</h3>
+        </div>
+        <div>
+          <h2>Computer</h2>
+          <h3 className="game-board-player2">{player2Score}</h3>
+        </div>
+        <div className='game-board_main'>
+          {mode === Play_mode.Manual ? renderManualMode() : renderAutoMode()}
+          {player1Move && player2Move && <p className="game-move_result">{player1Move} vs {player2Move}</p>}
+          {thereIsAWinner && <button onClick={handleRestart}>Restart</button>}
+        </div>
+      </div>
     </div>
   )
 }

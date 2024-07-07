@@ -1,4 +1,144 @@
 .App {
+  background-color: black;
   text-align: center;
+  color: white;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
 }
 
+.game{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  min-width: 700px;
+}
+
+.game-board {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  width: 100%;
+  max-width: 300px;
+}
+
+.game-moves {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.game-board-player1{
+  color: yellow;
+  font-size: 2rem;
+  margin: 0;
+}
+
+.game-board-player2{
+  color: rgb(0, 157, 255);
+  font-size: 2rem;
+  margin: 0;
+}
+.game-board_manual{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin: 20px;
+}
+
+.game-board_main{
+padding: 20px;
+flex-basis: 100%;
+}
+
+
+.home-body {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  min-width: 700px;
+}
+
+.home-cta {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+li {
+  text-align: left;
+  font-weight: 600;
+}
+
+p{
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+img {
+  border-radius: 50%;
+  width: 250px;
+}
+
+a{
+  color: yellow;
+  margin-left: 0;
+}
+a:hover{
+  opacity: 0.8;
+}
+
+button {
+  background-color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  color: black;
+  font-weight: 700;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+button:hover {
+  background-color: #e6e2e2;
+  transition: 0.3s;
+}
+button:disabled {
+  background-color: #878787;
+  border: 1px solid black;
+  opacity: 0.7;
+}
+button:disabled:hover {
+  cursor: not-allowed;
+}
+
+.move {
+  background-color: black;
+  border: 1px solid white;
+  font-size: 2rem;
+}
+.move:disabled {
+  background-color: #878787;
+  border: 1px solid black;
+  opacity: 0.7;
+}
+.move:disabled:hover {
+  cursor: not-allowed;
+}
+
+.game-move_result{
+  font-size: 2rem;
+  margin: 20px;
+}
+
+/* .human-computer {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border: 1px solid white;
+} */
