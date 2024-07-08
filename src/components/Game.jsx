@@ -40,9 +40,9 @@ export const Game = ({
       <div>
         <p>Choose your next move:</p>
         <div className="game-moves">
-          <button className="move" onClick={() => play(Play_moves.Stone)} disabled={thereIsAWinner}>{Play_moves.Stone.image}</button>
-          <button className="move" onClick={() => play(Play_moves.Paper)} disabled={thereIsAWinner}>{Play_moves.Paper.image}</button>
-          <button className="move" onClick={() => play(Play_moves.Scissors)} disabled={thereIsAWinner}>{Play_moves.Scissors.image}</button>
+          <button className="move" name="stone" onClick={() => play(Play_moves.Stone)} disabled={thereIsAWinner}>{Play_moves.Stone.image}</button>
+          <button className="move" name="paper" onClick={() => play(Play_moves.Paper)} disabled={thereIsAWinner}>{Play_moves.Paper.image}</button>
+          <button className="move" name="scissors" onClick={() => play(Play_moves.Scissors)} disabled={thereIsAWinner}>{Play_moves.Scissors.image}</button>
         </div>
         <p>
           {!thereIsAWinner && partialWinner === 1 ? 'You win this round!' :
@@ -81,7 +81,7 @@ export const Game = ({
         <div className='game-board_main'>
           {mode === Play_mode.Manual ? renderManualMode() : renderAutoMode()}
           <p className="game-move_result">{player1Move && player2Move && `${player1Move} vs ${player2Move}`}</p>
-          {thereIsAWinner && <button onClick={handleRestart}>Restart</button>}
+          {thereIsAWinner && <button name="restart" onClick={handleRestart}>Restart</button>}
         </div>
       </div>
     </div>
