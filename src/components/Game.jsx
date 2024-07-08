@@ -30,6 +30,9 @@ export const Game = ({
   const handleRestart = () => {
     setPlayer1Score(0);
     setPlayer2Score(0);
+    setPlayer1Move('');
+    setPlayer1Move('');
+    setPartialWinner('');
   }
 
   const renderManualMode = () => {
@@ -55,6 +58,11 @@ export const Game = ({
     return (
       <div>
         <button onClick={() => play()} disabled={thereIsAWinner}>Play</button>
+        <p>
+          {!thereIsAWinner && partialWinner === 1 ? 'Digital You win this round!' :
+          partialWinner === 2 ? 'Computer wins this round!' :
+          partialWinner === 0 ? 'It is a tie!' : null}
+        </p>
       </div>
     )
   }
@@ -63,7 +71,7 @@ export const Game = ({
     <div className="game">
       <div className="game-board">
         <div>
-          <h2>{mode === Play_mode.Auto ? 'Computer' : 'You'}</h2>
+          <h2>{mode === Play_mode.Auto ? 'Digital You' : 'You'}</h2>
           <h3 className="game-board-player1">{player1Score}</h3>
         </div>
         <div>
@@ -72,7 +80,7 @@ export const Game = ({
         </div>
         <div className='game-board_main'>
           {mode === Play_mode.Manual ? renderManualMode() : renderAutoMode()}
-          {player1Move && player2Move && <p className="game-move_result">{player1Move} vs {player2Move}</p>}
+          <p className="game-move_result">{player1Move && player2Move && `${player1Move} vs ${player2Move}`}</p>
           {thereIsAWinner && <button onClick={handleRestart}>Restart</button>}
         </div>
       </div>
