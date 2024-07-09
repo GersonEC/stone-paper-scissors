@@ -34,6 +34,22 @@ export const Game = ({
     setPlayer1Move('');
     setPartialWinner('');
   }
+  
+  const renderGameInfo = ( mode ) => {
+    const player1Name = mode === Play_mode.Auto ? 'Digital You' : 'You';
+    const player2Name = 'Computer';
+
+    return (
+      <>
+        <p>
+          {!thereIsAWinner && partialWinner === 1 ? `${player1Name} win this round!` :
+          partialWinner === 2 ? `${player2Name} wins this round!` :
+          partialWinner === 0 ? `It is a tie!` : null}
+        </p>
+        <p>{player1Score === 3 ? `${player1Name} win!` : player2Score === 3 ? `${player2Name} wins!` : null}</p>
+      </>
+    )
+  }
 
   const renderManualMode = () => {
     return (
@@ -44,12 +60,7 @@ export const Game = ({
           <button className="move" name="paper" onClick={() => play(Play_moves.Paper)} disabled={thereIsAWinner}>{Play_moves.Paper.image}</button>
           <button className="move" name="scissors" onClick={() => play(Play_moves.Scissors)} disabled={thereIsAWinner}>{Play_moves.Scissors.image}</button>
         </div>
-        <p>
-          {!thereIsAWinner && partialWinner === 1 ? 'You win this round!' :
-          partialWinner === 2 ? 'Computer wins this round!' :
-          partialWinner === 0 ? 'It is a tie!' : null}
-        </p>
-        <p>{player1Score === 3 ? 'You win!' : player2Score === 3 ? 'Computer wins!' : null}</p>
+        { renderGameInfo(Play_mode.Manual) }  
       </div>
     )
   }
@@ -58,11 +69,7 @@ export const Game = ({
     return (
       <div>
         <button onClick={() => play()} disabled={thereIsAWinner}>Play</button>
-        <p>
-          {!thereIsAWinner && partialWinner === 1 ? 'Digital You win this round!' :
-          partialWinner === 2 ? 'Computer wins this round!' :
-          partialWinner === 0 ? 'It is a tie!' : null}
-        </p>
+        { renderGameInfo(Play_mode.Auto) }
       </div>
     )
   }
