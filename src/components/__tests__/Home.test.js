@@ -1,13 +1,6 @@
-import { act, render, screen } from "@testing-library/react"
+import { render, screen } from "@testing-library/react"
 import { MemoryRouter } from "react-router-dom"
 import { Home } from "../Home"
-import userEvent from "@testing-library/user-event";
-
-// jest.mock('react-router-dom', () => ({
-//   useNavigate: jest.fn(),
-// }));
-
-// const useNavigateMock = jest.mocked(useNavigate)
 
 describe('Home', () => {
   it('should render correctly', () => {
@@ -31,24 +24,4 @@ describe('Home', () => {
     expect(button2).toBeInTheDocument();
   });
 
-  // it('should navigate to human vs computer when clicking on the relative button', () => {
-  //   // const navigateMock = jest.fn()
-  //   // useNavigateMock.mockReturnValue(navigateMock)
-
-  //   render(
-  //     <MemoryRouter initialEntries={['/']}>
-  //       <Home />
-  //     </MemoryRouter>
-  //   )
-  //   // Interact with page
-  //   act(async () => {
-  //     const button = screen.getByRole('button', {name: /human vs computer/i});
-  //     await userEvent.click(button)
-  // });
-
-  // // Check correct page content showed up
-  // screen.debug()
-  // // expect(document.body.textContent).toBe('Welcome');
-
-  // })
 })
